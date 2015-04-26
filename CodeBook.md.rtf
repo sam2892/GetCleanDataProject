@@ -1,0 +1,50 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1344\cocoasubrtf720
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\})}{\leveltext\leveltemplateid101\'02\'00);}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\margl1440\margr1440\vieww13920\viewh13040\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\b\fs36 \cf0 \ul \ulc0 Getting and Cleaning Data Final Project
+\b0 \ulnone \
+
+\i Code Book by Scott Meyer
+\i0 \
+\
+
+\b \ul Variables
+\b0 \ulnone \
+The variables used for this data are mostly outlined within the data zip file. The main \
+README.txt file discusses the data in detail and the associated files. There are a few important ones used that should be outlined as those were used in my efforts to provide the Tidy Data as requested for the project. One thing to note, all \'91Z\'92 below will represent both \'93test\'94 and \'93train\'94 data. Train data makes up 70% of the included data, where Test data makes up 30% of the included data.  For each item below, there is both and train file and a test file. These include:\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	\'95	}subject_Z \'97> this identified the test subject who performed the activity. There are 30 test subjects captured as part of this study.\
+{\listtext	\'95	}X_Z \'97> training set of information, the bulk of captured data is in these files\
+{\listtext	\'95	}y_Z \'97> these include the training labels/activities matching the rows of train info captured in the X_ files above\
+{\listtext	\'95	}activity_labels.txt \'97> this file was used to map the labels from the y_ files into text of actual activities performed by the subjects. There are six (6) activities tracked.\
+{\listtext	\'95	}features_info.txt \'97> discusses the details of what training info was captured in the columns of the X_ files above\
+{\listtext	\'95	}features.txt \'97> this file provides the column names of each of the columns in the original data. There are 561 original columns of data captured.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 \ul \ulc0 \
+Data\
+
+\b0 \ulnone The actual data for this project is split across a subject, X_ and y_ file for both Train and Test, so six(6) total files.  These need to be merged into a single file.  The subject and y_ files will add an extra column of information to the 561 column X_ file.  The X_file contains all of the captured floating integers of data from the study. All three (3) of the Train files have the same number of rows and this is true of the Test files. So each column of the three files all correlate to the same row of information, therefore requiring Train files to be merged, then Test files to be merged and then all of the data combined to put the 70% of Train data with the 30% of Test data. The subject data and y_files are also all integer values.\
+
+\b \ul \
+Transformation Details
+\b0 \ulnone \
+All of the data was transformed as requested in the project outline steps.  These steps (as also documented in the R script submitted, include):\
+\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	1)	}Read all needed files in with the script (six files in total)\
+{\listtext	2)	}Merge the subject, X_ & y_ Train data\
+{\listtext	3)	}Merge the subject, X_ & y_ Test data\
+{\listtext	4)	}Merge both Train and Test for all subjects into single data set\
+{\listtext	5)	}Rename the first two columns as Subject and Activity\
+{\listtext	6)	}Create a new data set with just the mean and standard deviation (std) columns\
+{\listtext	7)	}Change the Activity column numeric values to text names as per the activity_labels.txt file\
+{\listtext	8)	}Re-label all other columns using features_info file (mean and std)\
+{\listtext	9)	}Calculate the average based on both the Subject & Activity columns\
+{\listtext	10)	}Write the final result to the file called tidydataset.txt}
